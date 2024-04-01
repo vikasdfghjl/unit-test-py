@@ -13,11 +13,11 @@ class TestATGConnection(unittest.TestCase):
 
         try:
             logging.info("Attempting to connect to ATG website...")
-            response = requests.get(url, timeout=5)  # Set a timeout
-            response.raise_for_status()  # Raise an exception for error status codes
+            response = requests.get(url, timeout=5)
+            response.raise_for_status()
 
             logging.info("Connection successful!")
-            self.assertTrue(True)  # Test passes
+            self.assertTrue(True)
 
         except requests.exceptions.RequestException as e:
             logging.error("Connection failed: {}".format(e))
