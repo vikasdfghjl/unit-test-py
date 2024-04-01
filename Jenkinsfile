@@ -5,7 +5,7 @@ pipeline {
     }
     tools{
         //dockerTool 'Docker'
-        python3 'python3.10.12' 
+        Python 'python3.10.12' 
      }
 
     stages {
