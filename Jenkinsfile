@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Install any dependencies required for your tests
                 sh 'python3 --version'
-                sh 'pip install -r requirements.txt' 
+                sh 'pip3 install -r requirements.txt' 
             }
         }
 
