@@ -1,11 +1,17 @@
 pipeline {
     agent any
+    environment {
+        HOME = "${env.WORKSPACE}"
+    }
+    tools{
+        //dockerTool 'Docker'
+        python3 'python3.10.12' 
+     }
 
     stages {
         stage('Setup') {
             steps {
                 // Install any dependencies required for your tests
-                sh 'apt install python3'
                 sh 'python3 --version'
                 sh 'pip3 install -r requirements.txt' 
             }
