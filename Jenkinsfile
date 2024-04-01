@@ -11,7 +11,7 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                sh 'python -m unittest -v test_atg_connection.py'
+                sh 'python3 -m unittest -v test_atg_connection.py'
             }
         }
 
