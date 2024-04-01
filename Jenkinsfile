@@ -5,7 +5,7 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install any dependencies required for your tests
-                sh 'sudo apt install python3'
+                sh 'apt install python3'
                 sh 'python3 --version'
                 sh 'pip3 install -r requirements.txt' 
             }
