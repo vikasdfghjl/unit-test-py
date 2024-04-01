@@ -5,7 +5,7 @@ pipeline {
         stage('Setup') {
             steps {
                 // Install any dependencies required for your tests
-                sh 'export PATH=$PATH:/usr/bin/python3'
+                sh 'python3 --version'
                 sh 'pip install -r requirements.txt' 
             }
         }
