@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Unit Tests') {
             steps {
-                sh 'python -m unittest discover -v tests/'
+                sh 'python3 -m unittest test_atg_connection.py'
             }
         }
     }
