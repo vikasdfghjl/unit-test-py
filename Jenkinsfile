@@ -2,16 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('ATG Connection Test') {
+        stage('Setup') {
             steps {
-                sh '''python -m unittest -v test_atg_connection.py''' 
+                // Install any dependencies required for your tests
+                sh 'pip install -r requirements.txt' 
             }
         }
-    }
 
-    post {
-        always {
-            junit '*.xml' // Collect any generated JUnit XML test reports
+        stage('Run Unit Tests') {
+            steps {
+                sh 'python -m unittest -v test_atg_connection.py'
+            }
+        }
+
+        stage('Collect Results') {
+            steps {
+                junit '*.xml' // Collect any JUnit-format test reports
+            }
         }
     }
 }
