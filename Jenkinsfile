@@ -3,10 +3,7 @@ pipeline {
     environment {
         HOME = "${env.WORKSPACE}"
     }
-    tools{
-        //dockerTool 'Docker'
-        Python 'python3.10.12' 
-     }
+    
 
     stages {
         stage('Setup') {
