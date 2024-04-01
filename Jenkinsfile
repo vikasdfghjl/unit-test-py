@@ -1,29 +1,17 @@
 pipeline {
     agent any
-    environment {
-        HOME = "${env.WORKSPACE}"
-    }
-    
 
     stages {
-        stage('Setup') {
+        stage('Unit Tests') {
             steps {
-                // Install any dependencies required for your tests
-                sh 'python3 --version'
-                sh 'pip3 install -r requirements.txt' 
+                sh 'python -m unittest discover -v tests/'
             }
         }
+    }
 
-        stage('Run Unit Tests') {
-            steps {
-                sh 'python3 -m unittest -v test_atg_connection.py'
-            }
-        }
-
-        stage('Collect Results') {
-            steps {
-                junit '*.xml' // Collect any JUnit-format test reports
-            }
+    post {
+        always {
+            junit '*.xml' // Collect any generated JUnit XML test reports
         }
     }
 }
