@@ -9,9 +9,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            junit '*.xml' // Collect any generated JUnit XML test reports
-        }
-    }
 }
